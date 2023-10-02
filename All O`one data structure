@@ -1,0 +1,43 @@
+**HARD**
+class AllOne:
+
+    def __init__(self):
+        self.hashmap = dict()
+
+    def inc(self, key: str) -> None:
+        try:
+            self.hashmap[key] +=1
+        except Exception:
+            self.hashmap[key] = 1
+
+    def dec(self, key: str) -> None:
+        self.hashmap[key] -=1
+        if self.hashmap[key] == 0:
+            del self.hashmap[key]
+        
+
+    def getMaxKey(self) -> str:
+        try:
+            maxcount = max(self.hashmap.values())
+            for key,value in self.hashmap.items():
+                if value == maxcount:
+                    return key
+        except Exception:
+            return ""
+            
+    def getMinKey(self) -> str:
+        try:
+            mincount = min(self.hashmap.values())
+            for key,value in self.hashmap.items():
+                if value == mincount:
+                    return key
+        except Exception:
+            return ""
+        
+
+# Your AllOne object will be instantiated and called as such:
+# obj = AllOne()
+# obj.inc(key)
+# obj.dec(key)
+# param_3 = obj.getMaxKey()
+# param_4 = obj.getMinKey()
